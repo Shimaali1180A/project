@@ -1,0 +1,32 @@
+!pip install tensorflow==2.12.0
+# 📦 استيراد المكتبات
+from tensorflow.keras.models import load_model
+from PIL import Image
+import numpy as np
+
+# ✅ تحميل النموذج المدرب
+model = load_model("keras_model.h5", compile=False)
+
+# ✅ تحميل التصنيفات (labels)
+labels = open("labels.txt", "r").read().splitlines()
+
+# ✅ تحميل الصورة وتحويلها إلى RGB
+image = Image.open("Lion.jpg").convert("RGB")
+
+# ✅ تغيير حجم الصورة لتتناسب مع النموذج (224x224)
+image = image.resize((224, 224))
+
+# ✅ تحويل الصورة إلى مصفوفة أرقام وتطبيع القيم
+image_array = np.array(image).astype(np.float32)
+image_array = (image_array / 127.5) - 1
+image_array = np.expand_dims(image_array, axis=0)  # الشكل المطلوب: (1, 224, 224, 3)
+
+# ✅ تنفيذ التنبؤ
+prediction = model.predict(image_array)
+index = np.argmax(prediction)
+confidence = prediction[0][index]
+
+# ✅ طباعة النتيجة
+print("✅ الصورة: Lion.jpg")
+print("↪️ التصنيف:", labels[index])
+print("↪️ نسبة الثقة:", round(confidence * 100, 2), "%")
