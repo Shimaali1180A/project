@@ -2,7 +2,7 @@
 
 This project is an image classification system that can distinguish between images of a lion and a cat. A custom machine learning model was trained using an external platform that allows easy training of image-based models. The trained model was later tested using Python.
 
-## 🧠 Project Description
+##  Project Description
 
 The goal of this project is to classify images into two categories: lion or cat. The process included the following steps:
 
@@ -15,20 +15,20 @@ The goal of this project is to classify images into two categories: lion or cat.
 3. Python Script for Prediction  
    A Python script was developed to load the trained model and perform predictions on test images. The script takes an image as input and returns the prediction result.
 
-## 💻 Technologies Used
+##  Technologies Used
 
 - Machine Learning Model (exported from external training platform)
 - Python
 - Image Processing Libraries (such as PIL or OpenCV)
 - TensorFlow / Keras (depending on model format)
 
-## 🚀 How to Run the Project
+##  How to Run the Project
 
 1. Prepare the trained model and place it in the project directory.
 2. Provide test images for prediction.
 3. Run the Python script to classify the image.
 
-## 🎯 Project Purpose
+##  Project Purpose
 
 This project was created as part of a learning experience to understand image classification using pre-trained models and Python integration. It demonstrates the basic steps of using a custom machine learning model in a real-world scenario.
 
